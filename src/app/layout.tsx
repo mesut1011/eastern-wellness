@@ -13,25 +13,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-[#faf8f5]">
-        <nav className="bg-white shadow-sm border-b border-gray-100">
-          <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="/" className="text-2xl font-bold text-[#2d5a4a]">
+      <body style={{ minHeight: '100vh', backgroundColor: '#faf8f5' }}>
+        <nav style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', borderBottom: '1px solid #f3f4f6' }}>
+          <div style={{ maxWidth: '72rem', margin: '0 auto', padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <a href="/" style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#2d5a4a' }}>
               Eastern Wellness
             </a>
-            <div className="flex gap-6">
-              <a href="/questionnaire" className="text-gray-600 hover:text-[#2d5a4a]">Start Assessment</a>
-              <a href="#about" className="text-gray-600 hover:text-[#2d5a4a]">About TCM</a>
+            <div style={{ display: 'flex', gap: '1.5rem' }}>
+              <a href="/questionnaire" style={{ color: '#4b5563' }}>Start Assessment</a>
             </div>
           </div>
         </nav>
         {children}
-        <footer className="bg-[#2d5a4a] text-white py-8 mt-16">
-          <div className="max-w-6xl mx-auto px-4 text-center">
-            <p className="text-sm opacity-80">
-              © 2026 Eastern Wellness. For educational purposes only. Not a substitute for professional medical advice.
-            </p>
-          </div>
+        <footer style={{ backgroundColor: '#2d5a4a', color: 'white', padding: '2rem', marginTop: '4rem', textAlign: 'center' }}>
+          <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
+            © 2026 Eastern Wellness. For educational purposes only.
+          </p>
         </footer>
       </body>
     </html>

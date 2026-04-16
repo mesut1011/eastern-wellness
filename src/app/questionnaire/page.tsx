@@ -3,163 +3,28 @@
 import { useState } from 'react'
 
 const questions = [
-  // Energy & Vitality
-  {
-    id: 'energy_level',
-    category: 'Energy & Vitality',
-    question: 'How would you rate your overall energy level?',
-    options: ['Very low - always tired', 'Low - tired most of the time', 'Moderate - varies', 'Good - mostly energetic', 'Excellent - full of energy']
-  },
-  {
-    id: 'morning_energy',
-    category: 'Energy & Vitality',
-    question: 'How do you feel when you wake up in the morning?',
-    options: ['Exhausted, hard to get up', 'Groggy, takes time to wake up', 'Okay, neither good nor bad', 'Refreshed and ready', 'Energetic and alert']
-  },
-  {
-    id: 'fatigue_time',
-    category: 'Energy & Vitality',
-    question: 'When do you typically feel most tired?',
-    options: ['All day long', 'Morning', 'Afternoon (3-5 PM)', 'Evening', 'I rarely feel tired']
-  },
-
-  // Temperature Sensitivity
-  {
-    id: 'cold_feeling',
-    category: 'Temperature Sensitivity',
-    question: 'Do you often feel cold in your hands or feet?',
-    options: ['Always, very cold', 'Often cold', 'Sometimes', 'Rarely', 'Never']
-  },
-  {
-    id: 'cold_weather',
-    category: 'Temperature Sensitivity',
-    question: 'How sensitive are you to cold weather?',
-    options: ['Very sensitive, always cold', 'Somewhat sensitive', 'Neutral', 'Prefer cooler weather', 'Love cold weather']
-  },
-  {
-    id: 'lower_back_cold',
-    category: 'Temperature Sensitivity',
-    question: 'Do you feel cold in your lower back or knees?',
-    options: ['Yes, frequently', 'Sometimes', 'Rarely', 'Never']
-  },
-
-  // Urinary & Sexual Health
-  {
-    id: 'urination_frequency',
-    category: 'Urinary & Sexual Health',
-    question: 'How often do you urinate at night?',
-    options: ['0 times', '1 time', '2 times', '3 times or more']
-  },
-  {
-    id: 'urination_urgency',
-    category: 'Urinary & Sexual Health',
-    question: 'Do you experience urgency or difficulty with urination?',
-    options: ['Often', 'Sometimes', 'Rarely', 'Never']
-  },
-  {
-    id: 'libido_level',
-    category: 'Urinary & Sexual Health',
-    question: 'How would you describe your libido (sexual drive)?',
-    options: ['Very low', 'Low', 'Moderate', 'Good', 'High']
-  },
-
-  // Sleep Quality
-  {
-    id: 'sleep_quality',
-    category: 'Sleep Quality',
-    question: 'How would you rate your sleep quality?',
-    options: ['Very poor - often wake up', 'Poor - restless sleep', 'Fair', 'Good', 'Excellent - deep sleep']
-  },
-  {
-    id: 'difficulty_sleeping',
-    category: 'Sleep Quality',
-    question: 'Do you have difficulty falling asleep or staying asleep?',
-    options: ['Yes, both', 'Difficulty falling asleep', 'Difficulty staying asleep', 'Sometimes', 'No issues']
-  },
-  {
-    id: 'vivid_dreams',
-    category: 'Sleep Quality',
-    question: 'Do you have vivid dreams or nightmares?',
-    options: ['Frequently', 'Often', 'Sometimes', 'Rarely', 'Never']
-  },
-
-  // Physical Symptoms
-  {
-    id: 'lower_back_pain',
-    category: 'Physical Symptoms',
-    question: 'Do you experience lower back pain or weakness?',
-    options: ['Yes, frequently', 'Sometimes', 'Rarely', 'Never']
-  },
-  {
-    id: 'knee_weakness',
-    category: 'Physical Symptoms',
-    question: 'Do your knees feel weak or painful?',
-    options: ['Yes, frequently', 'Sometimes', 'Rarely', 'Never']
-  },
-  {
-    id: 'hair_condition',
-    category: 'Physical Symptoms',
-    question: 'How is the condition of your hair?',
-    options: ['Thinning or falling out', 'Dry and brittle', 'Normal', 'Healthy and thick']
-  },
-  {
-    id: 'hearing_issues',
-    category: 'Physical Symptoms',
-    question: 'Do you experience ringing in ears or hearing issues?',
-    options: ['Yes, frequently', 'Sometimes', 'Rarely', 'Never']
-  },
-
-  // Emotional State
-  {
-    id: 'mood_level',
-    category: 'Emotional State',
-    question: 'How would you describe your typical mood?',
-    options: ['Often depressed or anxious', 'Sometimes low', 'Neutral', 'Generally positive', 'Very positive']
-  },
-  {
-    id: 'stress_level',
-    category: 'Emotional State',
-    question: 'How stressed do you feel on a daily basis?',
-    options: ['Very high', 'High', 'Moderate', 'Low', 'Very low']
-  },
-  {
-    id: 'concentration',
-    category: 'Emotional State',
-    question: 'How is your concentration and memory?',
-    options: ['Poor', 'Below average', 'Average', 'Good', 'Excellent']
-  },
-
-  // Additional Info
-  {
-    id: 'age',
-    category: 'Basic Information',
-    question: 'What is your age group?',
-    options: ['18-25', '26-35', '36-45', '46-55', '56-65', '65+']
-  },
-  {
-    id: 'gender',
-    category: 'Basic Information',
-    question: 'What is your gender?',
-    options: ['Male', 'Female', 'Prefer not to say']
-  }
+  { id: 'energy_level', category: 'Energy & Vitality', question: 'How would you rate your overall energy level?', options: ['Very low', 'Low', 'Moderate', 'Good', 'Excellent'] },
+  { id: 'cold_feeling', category: 'Temperature', question: 'Do you often feel cold in your hands or feet?', options: ['Always', 'Often', 'Sometimes', 'Rarely', 'Never'] },
+  { id: 'sleep_quality', category: 'Sleep', question: 'How would you rate your sleep quality?', options: ['Very poor', 'Poor', 'Fair', 'Good', 'Excellent'] },
+  { id: 'lower_back_pain', category: 'Physical', question: 'Do you experience lower back pain or weakness?', options: ['Yes, frequently', 'Sometimes', 'Rarely', 'Never'] },
+  { id: 'libido_level', category: 'Health', question: 'How would you describe your libido?', options: ['Very low', 'Low', 'Moderate', 'Good', 'High'] },
+  { id: 'age', category: 'Basic Info', question: 'What is your age group?', options: ['18-25', '26-35', '36-45', '46-55', '56-65', '65+'] },
 ]
 
 export default function Questionnaire() {
-  const [currentStep, setCurrentStep] = useState(0)
+  const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
-  const [email, setEmail] = useState('')
   const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const [submitting, setSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
+  const [done, setDone] = useState(false)
 
-  const currentQuestion = questions[currentStep]
-  const progress = ((currentStep + 1) / questions.length) * 100
+  const question = questions[step]
+  const progress = ((step + 1) / questions.length) * 100
 
   const handleAnswer = (answer: string) => {
-    setAnswers({ ...answers, [currentQuestion.id]: answer })
-    if (currentStep < questions.length - 1) {
-      setCurrentStep(currentStep + 1)
-    }
+    setAnswers({ ...answers, [question.id]: answer })
+    if (step < questions.length - 1) setStep(step + 1)
   }
 
   const handleSubmit = async () => {
@@ -167,154 +32,85 @@ export default function Questionnaire() {
       alert('Please fill in your name and email')
       return
     }
-
     setSubmitting(true)
     try {
-      const response = await fetch('/api/analyze', {
+      const res = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, answers })
       })
-      
-      if (response.ok) {
-        setSubmitted(true)
-      } else {
-        alert('Submission failed. Please try again.')
-      }
-    } catch (error) {
-      alert('Submission failed. Please try again.')
+      if (res.ok) setDone(true)
+      else alert('Submission failed')
+    } catch {
+      alert('Submission failed')
     }
     setSubmitting(false)
   }
 
-  if (submitted) {
+  if (done) {
     return (
-      <main className="min-h-screen py-16 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="text-6xl mb-6">✅</div>
-          <h1 className="text-3xl font-bold text-[#2d5a4a] mb-4">Assessment Submitted!</h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Thank you, {name}! Your assessment has been received.
-          </p>
-          <div className="card text-left">
-            <h2 className="text-xl font-semibold mb-4">What happens next:</h2>
-            <ol className="list-decimal list-inside space-y-3 text-gray-600">
-              <li>Our AI will analyze your responses using TCM principles</li>
-              <li>A TCM practitioner will review the analysis</li>
-              <li>You'll receive your personalized report within 24-48 hours at <strong>{email}</strong></li>
-            </ol>
-          </div>
-          <a href="/" className="btn-secondary inline-block mt-8">Return Home</a>
+      <main style={{ minHeight: '100vh', padding: '4rem 1rem' }}>
+        <div style={{ maxWidth: '40rem', margin: '0 auto', textAlign: 'center' }}>
+          <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>✅</div>
+          <h1 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#2d5a4a', marginBottom: '1rem' }}>Assessment Submitted!</h1>
+          <p style={{ fontSize: '1.25rem', color: '#4b5563', marginBottom: '2rem' }}>Thank you, {name}! Your report will be sent to {email} within 24-48 hours.</p>
+          <a href="/" style={{ backgroundColor: '#2d5a4a', color: 'white', padding: '0.75rem 2rem', borderRadius: '0.5rem', textDecoration: 'none' }}>Return Home</a>
         </div>
       </main>
     )
   }
 
+  const showForm = step === questions.length - 1 && answers[question.id]
+
   return (
-    <main className="min-h-screen py-12 px-4">
-      <div className="max-w-2xl mx-auto">
-        {/* Progress Bar */}
-        <div className="mb-8">
-          <div className="flex justify-between text-sm text-gray-500 mb-2">
-            <span>Question {currentStep + 1} of {questions.length}</span>
-            <span>{Math.round(progress)}% complete</span>
+    <main style={{ minHeight: '100vh', padding: '3rem 1rem' }}>
+      <div style={{ maxWidth: '40rem', margin: '0 auto' }}>
+        {/* Progress */}
+        <div style={{ marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.875rem', color: '#6b7280', marginBottom: '0.5rem' }}>
+            <span>Question {step + 1} of {questions.length}</span>
+            <span>{Math.round(progress)}%</span>
           </div>
-          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-            <div 
-              className="h-full bg-[#2d5a4a] transition-all duration-300"
-              style={{ width: `${progress}%` }}
-            />
+          <div style={{ height: '0.5rem', backgroundColor: '#e5e7eb', borderRadius: '9999px', overflow: 'hidden' }}>
+            <div style={{ height: '100%', backgroundColor: '#2d5a4a', width: `${progress}%`, transition: 'width 0.3s' }} />
           </div>
         </div>
 
-        {/* Question Card */}
-        <div className="card">
-          <div className="text-sm text-[#2d5a4a] font-medium mb-2">
-            {currentQuestion.category}
+        {/* Question */}
+        {!showForm ? (
+          <div style={{ backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', padding: '1.5rem' }}>
+            <div style={{ fontSize: '0.875rem', color: '#2d5a4a', fontWeight: '500', marginBottom: '0.5rem' }}>{question.category}</div>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1.5rem' }}>{question.question}</h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {question.options.map((opt, i) => (
+                <button key={i} onClick={() => handleAnswer(opt)} style={{ textAlign: 'left', padding: '0.75rem 1rem', borderRadius: '0.5rem', border: answers[question.id] === opt ? '2px solid #2d5a4a' : '1px solid #e5e7eb', backgroundColor: answers[question.id] === opt ? '#f0fdf4' : 'white', cursor: 'pointer' }}>
+                  {opt}
+                </button>
+              ))}
+            </div>
           </div>
-          <h2 className="text-xl font-semibold mb-6">
-            {currentQuestion.question}
-          </h2>
-          
-          <div className="space-y-3">
-            {currentQuestion.options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswer(option)}
-                className={`w-full text-left px-4 py-3 rounded-lg border transition-all ${
-                  answers[currentQuestion.id] === option
-                    ? 'border-[#2d5a4a] bg-[#2d5a4a]/10'
-                    : 'border-gray-200 hover:border-[#2d5a4a] hover:bg-gray-50'
-                }`}
-              >
-                {option}
-              </button>
-            ))}
+        ) : (
+          <div style={{ backgroundColor: 'white', borderRadius: '0.75rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', padding: '1.5rem' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: '600', marginBottom: '1.5rem' }}>Complete Your Assessment</h2>
+            <div style={{ marginBottom: '1rem' }}>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem' }}>Your Name</label>
+              <input type="text" value={name} onChange={(e) => setName(e.target.value)} style={{ width: '100%', padding: '0.75rem', border: '1px solid #e5e7eb', borderRadius: '0.5rem' }} placeholder="Enter your name" />
+            </div>
+            <div style={{ marginBottom: '1rem' }}>
+              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', marginBottom: '0.25rem' }}>Email Address</label>
+              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} style={{ width: '100%', padding: '0.75rem', border: '1px solid #e5e7eb', borderRadius: '0.5rem' }} placeholder="your@email.com" />
+            </div>
+            <button onClick={handleSubmit} disabled={submitting} style={{ width: '100%', backgroundColor: '#2d5a4a', color: 'white', padding: '0.75rem', borderRadius: '0.5rem', fontWeight: '500', border: 'none', cursor: 'pointer' }}>
+              {submitting ? 'Submitting...' : 'Submit Assessment'}
+            </button>
           </div>
-        </div>
+        )}
 
         {/* Navigation */}
-        <div className="flex justify-between mt-6">
-          <button
-            onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
-            disabled={currentStep === 0}
-            className="px-4 py-2 text-gray-600 disabled:opacity-50"
-          >
-            ← Previous
-          </button>
-          
-          {currentStep === questions.length - 1 && Object.keys(answers).length === questions.length ? (
-            <button
-              onClick={() => setCurrentStep(questions.length)}
-              className="btn-primary"
-            >
-              Continue to Submit →
-            </button>
-          ) : (
-            <button
-              onClick={() => setCurrentStep(Math.min(questions.length - 1, currentStep + 1))}
-              disabled={!answers[currentQuestion.id]}
-              className="px-4 py-2 text-[#2d5a4a] disabled:opacity-50"
-            >
-              Next →
-            </button>
-          )}
-        </div>
-
-        {/* Submit Form */}
-        {currentStep === questions.length && (
-          <div className="card mt-8">
-            <h2 className="text-xl font-semibold mb-6">Complete Your Assessment</h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="input-field"
-                  placeholder="Enter your name"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="input-field"
-                  placeholder="your@email.com"
-                />
-                <p className="text-sm text-gray-500 mt-1">Your report will be sent to this email</p>
-              </div>
-              <button
-                onClick={handleSubmit}
-                disabled={submitting}
-                className="btn-primary w-full"
-              >
-                {submitting ? 'Submitting...' : 'Submit Assessment'}
-              </button>
-            </div>
+        {!showForm && (
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1.5rem' }}>
+            <button onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0} style={{ color: '#6b7280', cursor: step === 0 ? 'default' : 'pointer', opacity: step === 0 ? 0.5 : 1 }}>← Previous</button>
+            <button onClick={() => setStep(Math.min(questions.length - 1, step + 1))} disabled={!answers[question.id]} style={{ color: '#2d5a4a', cursor: answers[question.id] ? 'pointer' : 'default', opacity: answers[question.id] ? 1 : 0.5 }}>Next →</button>
           </div>
         )}
       </div>
