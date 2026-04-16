@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2d5a4a;
+  --secondary: #8b7355;
+  --accent: #d4a574;
+  --background: #faf8f5;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--background);
+}
+
+.btn-primary {
+  @apply bg-[#2d5a4a] text-white px-8 py-3 rounded-lg hover:bg-[#1e3d32] transition-all duration-300 font-medium;
+}
+
+.btn-secondary {
+  @apply border-2 border-[#2d5a4a] text-[#2d5a4a] px-8 py-3 rounded-lg hover:bg-[#2d5a4a] hover:text-white transition-all duration-300 font-medium;
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-lg p-6 border border-gray-100;
+}
+
+.input-field {
+  @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#2d5a4a] focus:border-transparent outline-none transition-all;
+}
