@@ -52,7 +52,7 @@ export default function Questionnaire() {
   const showForm = step === questions.length - 1 && answers[question.id]
 
   // WhatsApp 号码（用户需要注册后告诉我）
-  const whatsappNumber = 'YOUR_WHATSAPP_NUMBER' // 例如: 8613800138000
+  const whatsappNumber = '8615607671586' // 例如: 8613800138000
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=Hi, I just completed the TCM assessment and would like to consult with a practitioner.`
 
   if (result) {
